@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /*    
-Description:      Displays the Main Menu 
-Last modified:    Oct 28, 2026 
-Version:          0.1.0
+Description:      Allows the user to input 4 integers; The program guesses what kind of sequence they create.
+Last modified:    Oct 29, 2026 
+Version:          0.1.1
 [Acknowledgements: <list of sites or borrowed libraries and sources>] 
 */
 
@@ -22,11 +22,15 @@ void displayOption1() {
 	
 	printf("Sequence: %d %d %d %d\n", nNum1, nNum2, nNum3, nNum4);
 	
-	// 1-2. Increments/Decrements of N
 	int nDiff1 = nNum2 - nNum1;
 	int nDiff2 = nNum3 - nNum2;
 	int nDiff3 = nNum4 - nNum3;
 	
+	int nQuotient1 = nNum2 / nNum1;
+	int nQuotient2 = nNum3 / nNum2;
+	int nQuotient3 = nNum4 / nNum3;
+	
+	// 1-2. Increments/Decrements of N
 	// If the differences of the numbers are equal
 	if(nDiff1 == nDiff2 && nDiff2 == nDiff3){
 		
@@ -37,11 +41,13 @@ void displayOption1() {
 		}
 		
 		else if(nDiff1 < 0){
-			printf("5th Number: %d\n", nDiff1 - nNum4);
-			printf("Reason:\nDecrements of %d\n", nDiff1*-1);
+			printf("5th Number: %d\n", nDiff1 + nNum4);
+			
+			nDiff1*=-1; // change N to positive number
+			printf("Reason:\nDecrements of %d\n", nDiff1);
 		}
 		
-		// TODO: Even/odd series (if all diff == 2 && all nums %2 == 0)
+		// Even/odd series (if all diff == 2 && all nums %2 == 0)
 		if(nDiff1 == 2) {
 			if(nNum1 % 2 == 0 && nNum2 % 2 == 0 && nNum3 % 2 == 0 && nNum4 % 2 == 0){
 			printf("Even Series\n");
@@ -49,7 +55,13 @@ void displayOption1() {
 			else printf("Odd Series\n");
 		}
 		
-		
+	}
+	
+	// *N Series
+	// negative N allowed
+	else if(nQuotient1 == nQuotient2 && nQuotient2 == nQuotient3) {
+		printf("5th Number: %d\n", nNum4 * nQuotient3);
+		printf("Reason:\n*%d Sequence\n", nQuotient3);
 	}
 	
 	printf("\n");
