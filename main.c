@@ -49,12 +49,19 @@ void displayOption1() {
 		
 		// Even/odd series (if all diff == 2 && all nums %2 == 0)
 		if(nDiff1 == 2) {
-			if(nNum1 % 2 == 0 && nNum2 % 2 == 0 && nNum3 % 2 == 0 && nNum4 % 2 == 0){
-			printf("Even Series\n");
-		}
+			if(nNum1 % 2 == 0 && nNum2 % 2 == 0 && nNum3 % 2 == 0 && nNum4 % 2 == 0) 
+				printf("Even Series\n");
 			else printf("Odd Series\n");
 		}
 		
+	}
+	
+	// 5-6. +M+N series and -M-N series
+	// 12 29 33 50, +17 +4 sequence
+	// 50 33 29 12, -17 -4 sequence
+	else if(nDiff1 == nDiff3) {
+		printf("5th Number: %d\n", nNum4 + nDiff2);
+		printf("Reason:\n%+d %+d sequence\n", nDiff1, nDiff2);
 	}
 	
 	// *N Series
